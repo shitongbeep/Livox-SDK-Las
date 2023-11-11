@@ -1,0 +1,6 @@
+[submodule "libLAS"]
+	path = libLAS
+	url = https://github.com/libLAS/libLAS.git
+[submodule "Livox-SDK"]
+	path = Livox-SDK
+	url = https://github.com/Livox-SDK/Livox-SDK.git
