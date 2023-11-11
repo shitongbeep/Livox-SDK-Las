@@ -19,7 +19,9 @@ const int32_t kFrameDurationTime = 50;
 }  // namespace
 
 int32_t GenerateLasFile(const std::vector<std::string>& broadcast_code_list,
-                        const std::string& las_path, int32_t duration) {
+                        const std::string& las_path,
+                        const std::string& las_name,
+                        int32_t duration) {
   assert(!las_path.empty() && duration > 0);
   if (broadcast_code_list.empty()) {
     std::cerr << "no broadcast_code input";
@@ -58,7 +60,7 @@ int32_t GenerateLasFile(const std::vector<std::string>& broadcast_code_list,
 
   std::cout << "Start initialize las file." << std::endl;
   las_file_handler.reset(new LasFileHandler(las_path, duration));
-  if (!las_file_handler->InitLasFile()) {
+  if (!las_file_handler->InitLasFile(las_name)) {
     std::cerr << "las file init fail." << std::endl;
     Uninit();
     return -1;
